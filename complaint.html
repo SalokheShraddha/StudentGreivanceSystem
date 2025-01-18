@@ -1,0 +1,44 @@
+<h1>Complaint Redressal Page</h1>
+    <form action="#" method="post">
+        <label for="name">  Name</label>
+       
+        <br><br>
+
+
+            <label for="complaint-type">Select Complaint Type:</label>
+        <select id="complaint-type" name="complaint-type" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="academic">Academic Issues</option>
+            <option value="administrative">Administrative Issues</option>
+            <option value="facilities">Facilities (Hostel, Canteen, Library)</option>
+            <option value="disciplinary">Disciplinary Concerns</option>
+            <option value="technical">Technical Support</option>
+            <option value="other">Other</option>
+        </select>
+        <br><br>
+        <label for="details">Provide Details:</label><br>
+        <textarea id="details" name="details" rows="4" cols="50" placeholder="Describe your complaint..." required></textarea>
+        <br><br>
+        
+
+        <label for="forward-to">Forward Complaint To:</label>
+        <select id="forward-to" name="forward-to" required>
+            <option value="" disabled selected>Select the Department or Authority</option>
+            <option value="hod_computer_science">HOD - Computer Science</option> 
+            <option value="hod_data_science">HOD - Data Science</option>
+            <option value="hod_civil">HOD - Civil</option>
+            <option value="hod_electrical">HOD - Electrical</option>
+            <option value="principal">Principal</option>
+            <option value="campus_director">Campus Director</option>
+            
+            <option value="other">Other</option>
+        </select>
+        <br><br>
+        
+
+        <button type="submit">Submit Complaint</button>
+
+    
+
+            
+        </form>

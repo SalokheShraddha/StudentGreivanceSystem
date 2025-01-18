@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 8px 0;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Faculty Registration</h2>
+        <form id="facultyForm" onsubmit="return validateForm()">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+            <label for="post">Post</label>
+            <input type="text" id="post" name="post" required>
+
+            <label for="department">Department</label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="computerScience">Computer Science</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Civil">Civil</option>
+                
+            </select>
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+
+        <div id="errorMessages" class="error"></div>
+    </div>
+
+    <script>
+        function validateForm() {
+            let errorMessages = "";
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const post = document.getElementById("post").value;
+            const department = document.getElementById("department").value;
+            const gender = document.getElementById("gender").value;
+            // Reset error messages
+            document.getElementById("errorMessages").innerHTML = "";
+
+            // Password mismatch check
+            if (password !== confirmPassword) {
+                errorMessages += "<p>Password and Confirm Password do not match.</p>";
+            }
+
+            // Check for empty department selection
+            if (department === "") {
+                errorMessages += "<p>Please select a department.</p>";
+            }
+
+            // Display error messages and prevent form submission if there are any
+            if (errorMessages !== "") {
+                document.getElementById("errorMessages").innerHTML = errorMessages;
+                return false; // Prevent form submission
+            }
+
+            // If no errors, form will submit
+            return true;
+        }
+    </script>
+
+</body>
+</html>
